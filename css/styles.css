@@ -87,6 +87,12 @@
             color: #fff;
             transition: ease 0.3s all;
         }
+        
+        .active {
+            background: #333;
+            color: #fff;
+            transition: ease 0.3s all;
+        }
         /* Header Styles */
         
         .page__header {

@@ -50,7 +50,6 @@ Array.from(collection).forEach(c => {
 
     const a = document.createElement("a");
     a.innerText = c.getElementsByClassName("landing__container")[0].getElementsByTagName("h2")[0].innerText;
-    a.href = `#section${i}`;
     navItem.appendChild(a);
     navList.appendChild(navItem);
     i++;
@@ -62,10 +61,14 @@ window.addEventListener('scroll', (e) => {
     const sections = document.getElementsByTagName("section");
     Array.from(sections).forEach(s => {
         const t = s.getBoundingClientRect().top;
-        if (t > 150 && t < 150) {
+        if (t >= 0 && t < 150) {
             s.classList.add("your-active-class");
+            const menuItem = document.getElementById(`menu-${s.getAttribute("id")[7]}`);
+            menuItem.classList.add("active");
         } else {
             s.classList.remove("your-active-class");
+            const menuItem = document.getElementById(`menu-${s.getAttribute("id")[7]}`);
+            menuItem.classList.remove("active");
         }
     });
 })
@@ -82,5 +85,13 @@ window.addEventListener('scroll', (e) => {
 // Build menu 
 
 // Scroll to section on link click
+const menu = document.getElementsByClassName("menu__link");
+Array.from(menu).forEach(m => {
+    m.addEventListener("click", function myFunction() {
+        document.getElementById("section" + m.id[5]).scrollIntoView({
+            behavior: 'smooth'
+        })
+    });
+});
 
 // Set sections as active
