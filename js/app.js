@@ -45,9 +45,10 @@ const collection = document.getElementsByTagName("section");
 let i = 1;
 Array.from(collection).forEach(c => {
     const navItem = document.createElement("li");
-    var a = document.createElement("a");
     navItem.classList.add("menu__link");
     navItem.setAttribute("id", `menu-${i}`);
+
+    const a = document.createElement("a");
     a.innerText = c.getElementsByClassName("landing__container")[0].getElementsByTagName("h2")[0].innerText;
     a.href = `#section${i}`;
     navItem.appendChild(a);
@@ -67,7 +68,7 @@ window.addEventListener('scroll', (e) => {
             s.classList.remove("your-active-class");
         }
     });
-});
+})
 
 // Scroll to anchor ID using scrollTO event
 
