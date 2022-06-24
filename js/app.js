@@ -87,11 +87,12 @@ window.addEventListener('scroll', (e) => {
 // Scroll to section on link click
 const menu = document.getElementsByClassName("menu__link");
 Array.from(menu).forEach(m => {
-    m.addEventListener("click", function myFunction() {
-        document.getElementById("section" + m.id[5]).scrollIntoView({
-            behavior: 'smooth'
-        })
-    });
+    m.addEventListener("click", () => scroll("section" + m.id[5]));
 });
 
+function scroll(id) {
+    document.getElementById(id).scrollIntoView({
+        behavior: 'smooth'
+    })
+}
 // Set sections as active
